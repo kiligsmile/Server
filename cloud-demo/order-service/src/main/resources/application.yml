@@ -6,12 +6,33 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: orderservice
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        cluster-name: SH
+        namespace: 50b59c7d-08e7-440c-9058-804a9902c75f
+        ephemeral: false
 mybatis:
   type-aliases-package: cn.smile.user.pojo
   configuration:
     map-underscore-to-camel-case: true
 logging:
   level:
-    cn.itcast: debug
+    cn.smile: debug
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+userservice:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
+ribbon:
+  eager-load:
+    enabled: true
+    clients:
+      - userservice

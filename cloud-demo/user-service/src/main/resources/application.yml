@@ -6,12 +6,24 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
+#  application:
+#    name: userservice
+#  cloud:
+#    nacos:
+#      server-addr: localhost:8848
+#      discovery:
+#        cluster-name: SH
+
 mybatis:
   type-aliases-package: cn.smile.user.pojo
   configuration:
     map-underscore-to-camel-case: true
 logging:
   level:
-    cn.itcast: debug
+    cn.smile: debug
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://127.0.0.1:10086/eureka
